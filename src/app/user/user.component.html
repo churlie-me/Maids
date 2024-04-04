@@ -1,0 +1,16 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div class="user-details" *ngIf="user">
+    <div class="user-avatar">
+        <mat-card>
+            <img [src]="user.avatar" alt="User Avatar" class="img-responsive">
+        </mat-card>
+    </div>
+    <div class="user-info">
+        <h1>User Details</h1>
+        <div class="user-content"><div>First Name:</div> <div>{{ user.first_name }}</div></div>
+        <div class="user-content"><div>Last Name:</div> <div>{{ user.last_name }}</div></div>
+        <div class="user-content"><div>Email:</div> <div>{{ user.email }}</div></div>
+    </div>
+</div>
+
+

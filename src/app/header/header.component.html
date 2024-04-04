@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="goBack()">
+        <mat-icon>{{ isUserComponent ? 'arrow_back' : 'menu' }}</mat-icon>
+    </button>
+    <span>Maids</span>
+    <span class="example-spacer"></span>
+    <input matInput class="search" color="primary" placeholder="Search by ID" (input)="filterUsers($event)">
+</mat-toolbar>

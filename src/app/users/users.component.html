@@ -1,0 +1,20 @@
+<mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+<div class="user-list" *ngIf="filtered_users?.length > 0 || users_data?.data.length > 0">
+    <a *ngFor="let user of filtered_users || users_data?.data" class="user-card" href="user/{{ user.id }}">
+        <mat-card>
+            <img mat-card-image [src]="user.avatar" class="img-responsive">
+            <mat-card-footer>
+                <div mat-card-avatar></div>
+                <mat-card-title>{{ user.first_name }} {{ user.last_name }}</mat-card-title>
+            </mat-card-footer>
+        </mat-card>
+    </a>
+
+    <mat-paginator class="paginator" [length]="users_data?.total" [pageSize]="6" [pageSizeOptions]="[0]" aria-label="Select page"
+        [pageIndex]="(users_data?.page - 1)" [showFirstLastButtons]="true" 
+        (page)="onPageChange($event)">
+    </mat-paginator>
+</div>
+<div class="users-empty" *ngIf="filtered_users?.length === 0 || users_data?.data?.length === 0">
+    <p>No users found</p>
+</div>
